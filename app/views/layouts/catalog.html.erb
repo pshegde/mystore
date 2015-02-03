@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My bookstore </title>
+<%= stylesheet_link_tag "mystore", "media" => "all" %>
+
+</head>
+<body id="catalog">
+
+<div id="banner">
+  <%= image_tag ("logo.png") %>
+  <%= @page_title || "Pragmatic Bookstore" %>
+</div>
+<div  id="columns">
+  <div  id="side">
+    <a href="/catalog/index"> Home</a><br>
+    <a href="/catalog/view_cart"> View cart </a>
+    
+  </div>
+  <div id="main">
+    <%if flash[:notice]%>
+      <div id="notice"><%=flash[:notice]%> </div>
+    <%end%>
+
+    <%= yield :layout %>
+  </div>
+</div>
+</body>
+</html>

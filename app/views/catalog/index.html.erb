@@ -1,0 +1,15 @@
+<h1>Bookstore</h1>
+
+<% @products.each do |product|   %>
+
+  <div class="entry">
+    <%= image_tag product.image_link %>
+    <h3> <%=product.title%> </h3>
+    <%=product.desc%>
+    <div class="price_list">
+      <div class="price"><%=product.price%></div>
+      <%=button_to 'Add to cart', :action => 'add_to_cart', :id=> product, :method => :post %>
+    </div>
+
+  </div>
+<%end %>

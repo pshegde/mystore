@@ -25,7 +25,10 @@
           <dl>
             <dt><%=h product.title %></dt>
             <dd><%=h truncate(product.desc,:length => 30) %></dd>
-            <dd><%= product.price %> </dd>
+            <div class="price_line">
+              <dd><span class="price" ><%= number_to_currency product.price %> </span></dd>
+              <%=button_to 'add_to_cart'%>
+            </div>
           </dl>
         </td>
 

@@ -45,3 +45,4 @@ group :development, :test do
   gem 'faker'
 end
 
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'

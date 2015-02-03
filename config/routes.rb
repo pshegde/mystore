@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
+  get 'catalog/index'
+  post 'catalog/add_to_cart'
+  get 'catalog/delete_all'
+  get 'catalog/view_cart'
   resources :products
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'catalog#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

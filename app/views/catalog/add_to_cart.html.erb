@@ -1,0 +1,15 @@
+<h1> listing </h1>
+
+
+  <%#<% @cart.each do |item| <]%>
+<% unless @cart.items.nil? || flash[:message]  %>
+<ul>
+<% for item in @cart.items %>
+  <li><%= item.product.title %> :   <%=item.qty%></li>
+
+<%end%>
+
+<%=link_to "Empty cart", :action => :delete_all%> 
+
+</ul>
+<%end%>
