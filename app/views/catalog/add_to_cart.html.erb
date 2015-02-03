@@ -3,13 +3,20 @@
 
   <%#<% @cart.each do |item| <]%>
 <% unless @cart.items.nil? || flash[:message]  %>
-<ul>
-<% for item in @cart.items %>
-  <li><%= item.product.title %> :   <%=item.qty%></li>
-
-<%end%>
+<table>
+  <% for item in @cart.items %>
+    <tr>
+      <td><%= item.product.title %> &times; <%=item.qty%></td>
+      <td class="item-price"> <%=number_to_currency(item.product.price * item.qty)%></td>
+    </tr>
+  <%end%>
+    
+    <tr class="total-line">
+      <td>Total</td>
+      <td class="total-cell"> <%=number_to_currency(@cart.sum)%> </td>
+    </tr>
 
 <%=link_to "Empty cart", :action => :delete_all%> 
 
-</ul>
+</table>
 <%end%>

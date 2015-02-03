@@ -18,4 +18,8 @@ class Cart
       #@items << item
   end
 
+  def sum
+    @items.sum { |item| item.product.price * item.qty}
+  end
+
 end
