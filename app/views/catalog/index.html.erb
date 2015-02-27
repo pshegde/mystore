@@ -1,15 +1,23 @@
 <h1>Bookstore</h1>
-
+<%#<%= javascript_include_tag('catalog.js') <]   %> 
 <% @products.each do |product|   %>
 
   <div class="entry">
     <%= image_tag product.image_link %>
     <h3> <%=product.title%> </h3>
-    <%=product.desc%>
+    <%=product.desc%> 
+   <%# <h3 name="product_id" style="display: none;"><%=product.id<]</h3>%>
     <div class="price_list">
       <div class="price"><%=product.price%></div>
-      <%=button_to 'Add to cart', :action => 'add_to_cart', :id=> product, :method => :post %>
+     <%# <% form_for product, :url => { :action => 'add_to_cart', :id => product }, :remote => true, :method => :post do <]<]%>
+        <%#<%= submit_tag "Add to Cart" %>
+      <%#<% end <]%>
+      <%#<%=button_to 'Add to cart', :action => 'add_to_cart', :id=> product, :method => :post <]%>
+      <button class="add" name="<%=product.id%>">Add</button>
     </div>
 
   </div>
 <%end %>
+
+
+

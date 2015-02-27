@@ -12,8 +12,11 @@ class Cart
     found = @items.find { |iteminarray|  item==iteminarray.product }
     if(found)
       found.inc_qty
+      found
     else
-      @items << CartItem.new(item,1)
+      item = CartItem.new(item,1)
+      @items << item
+      item
     end
       #@items << item
   end

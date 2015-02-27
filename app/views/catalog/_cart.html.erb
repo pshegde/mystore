@@ -1,16 +1,19 @@
 <h1> listing </h1>
-
-
   <%#<% @cart.each do |item| <]%>
-<% unless @cart.items.nil? || flash[:message]  %>
-<table>
-  <% for item in @cart.items %>
-    <tr>
-      <td><%= item.product.title %> &times; <%=item.qty%></td>
+<% unless @cart.items.nil?   %>
+  <table>
+   <%# <%= render(:partial => "cart_item", :collection => @cart.items) <]%>
+   <% for item in @cart.items %>
+     <%if item == @current_item%>
+       <tr id="current_item">
+     <%else%>
+        <tr>
+      <%end%>
+      <td><%=h item.qty %> &times; <%=item.product.title%></td>
       <td class="item-price"> <%=number_to_currency(item.product.price * item.qty)%></td>
     </tr>
-  <%end%>
-    
+
+    <%end%>
     <tr class="total-line">
       <td>Total</td>
       <td class="total-cell"> <%=number_to_currency(@cart.sum)%> </td>

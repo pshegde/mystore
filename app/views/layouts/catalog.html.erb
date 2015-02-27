@@ -3,7 +3,7 @@
 <head>
 <title>My bookstore </title>
 <%= stylesheet_link_tag "mystore", "media" => "all" %>
-
+<%= javascript_include_tag 'jquery', 'application', 'catalog' %>
 </head>
 <body id="catalog">
 
@@ -13,6 +13,9 @@
 </div>
 <div  id="columns">
   <div  id="side">
+    <div id="cart">
+      <%= render(:partial => "catalog/cart", :object => @cart) %>
+    </div>
     <a href="/catalog/index"> Home</a><br>
     <a href="/catalog/view_cart"> View cart </a>
     
