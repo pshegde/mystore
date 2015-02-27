@@ -1,5 +1,7 @@
 class CatalogController < ApplicationController
   skip_before_action :verify_authenticity_token
+  include ApplicationHelper
+
   def index
     #byebug
     @products = Product.find_products_for_sale
@@ -41,6 +43,9 @@ class CatalogController < ApplicationController
     @cart = find_cart
     redirect_to_index "Cart is empty"
     #render :add_to_cart     #directly call the view
+    respond_to do |format|
+      format.json { head :no_content }
+    end
   end
 
   def redirect_to_index msg=nil

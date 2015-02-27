@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $("button").click(function() {
+  $(".add").click(function() {
     //event.preventDefault();
     alert("adding to cart!" );
     var a = $(this).attr('name');

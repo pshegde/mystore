@@ -1,6 +1,5 @@
-<h1> listing </h1>
   <%#<% @cart.each do |item| <]%>
-<% unless @cart.items.nil?   %>
+<% unless @cart.items.empty?   %>
   <table>
    <%# <%= render(:partial => "cart_item", :collection => @cart.items) <]%>
    <% for item in @cart.items %>
@@ -18,8 +17,7 @@
       <td>Total</td>
       <td class="total-cell"> <%=number_to_currency(@cart.sum)%> </td>
     </tr>
-
-<%=link_to "Empty cart", :action => :delete_all%> 
-
-</table>
+  </table>
+<%#<%=link_to "Empty cart", :action => :delete_all<] %>
+<%=button_to 'Empty cart', {action: :delete_all}, method: 'get', data: { confirm: 'Are you sure?'} %>
 <%end%>
