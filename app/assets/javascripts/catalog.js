@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $("#catalog img").click(function() { $(this).parent().find('.add').click() });
   $(".add").click(function() {
     //event.preventDefault();
     alert("adding to cart!" );
