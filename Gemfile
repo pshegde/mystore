@@ -47,6 +47,10 @@ group :test do
   gem 'simplecov', :require => false
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'mocha'
+  gem 'rspec'
+  gem 'rspec-activemodel-mocks'
+  gem 'minitest-rails'
 end
 
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
