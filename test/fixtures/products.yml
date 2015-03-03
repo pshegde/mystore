@@ -9,3 +9,10 @@ two:
   title: MyString
   desc: MyText
   image_link: MyString
+
+ruby:
+  id : 1
+  title: 'My ruby book'
+  desc: 'basics'
+  image_link: 'abc.png'
+  price: 4.2
