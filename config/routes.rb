@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  #post 'cart_items/create_item'
+  match '/cart_items/delete_all', :to => "cart_items#delete_all", via: [:get]
+  resources :cart_items
+
+  resources :carts
+
+  resources :orders
+
   get 'catalog/index'
   post 'catalog/add_to_cart'
   get 'catalog/delete_all'
@@ -9,7 +17,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'catalog#index'
+  root 'catalog#index', as: 'store'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

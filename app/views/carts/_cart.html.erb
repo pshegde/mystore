@@ -1,15 +1,15 @@
   <%#<% @cart.each do |item| <]%>
-<% unless @cart.items.empty?   %>
+<% unless @cart.cart_items.empty?   %>
   <table>
    <%# <%= render(:partial => "cart_item", :collection => @cart.items) <]%>
-   <% for item in @cart.items %>
+   <% for item in @cart.cart_items %>
      <%if item == @current_item%>
        <tr id="current_item">
      <%else%>
         <tr>
       <%end%>
-      <td><%=h item.qty %> &times; <%=item.product.title%></td>
-      <td class="item-price"> <%=number_to_currency(item.product.price * item.qty)%></td>
+      <td><%=h item.quantity %> &times; <%=item.product.title%></td>
+      <td class="item-price"> <%=number_to_currency(item.product.price * item.quantity)%></td>
     </tr>
 
     <%end%>
@@ -19,5 +19,6 @@
     </tr>
   </table>
 <%#<%=link_to "Empty cart", :action => :delete_all<] %>
+<%= button_to "Checkout", new_order_path, method: :get %>
 <%=button_to 'Empty cart', {action: :delete_all}, method: 'get', data: { confirm: 'Are you sure?'} %>
 <%end%>

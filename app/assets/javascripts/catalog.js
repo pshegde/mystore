@@ -6,7 +6,7 @@ $(document).ready(function() {
     var a = $(this).attr('name');
     alert(a);
     //$('#current_item').css({'background-color':'#88ff88'}).animate({'background-color':'#114411'}, 1000)
-    var request = $.ajax({url: "/catalog/add_to_cart?id=" +a,
+    var request = $.ajax({url: "/cart_items?product_id=" +a,
            type: "POST"
     });
     //data: JSON.stringify({'id' : a}),
