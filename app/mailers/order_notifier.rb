@@ -8,7 +8,7 @@ class OrderNotifier < ApplicationMailer
   def received(order)
     @greeting = "Hi"
     @order = order
-    mail to: "pngwedding2014@gmail.com", subject: 'order confirmation'
+    mail to: order.email, subject: 'order confirmation'
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
