@@ -36,6 +36,8 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
+        #send email after order is received
+        OrderNotifier.received(@order).deliver
         format.html { redirect_to :controller => "catalog", :action => "index" , notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else

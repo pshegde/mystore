@@ -1,0 +1,7 @@
+OrderNotifier#received
+<p> Dear <%= @order.name %>
+
+<%= @greeting %>, find me in app/views/order_notifier/received.text.erb
+You ordered the following items:
+
+<%= render @order.cart_items %>
