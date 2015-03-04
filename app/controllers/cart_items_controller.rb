@@ -2,7 +2,7 @@ require 'carts_controller.rb'
 
 class CartItemsController < ApplicationController
   skip_before_action :verify_authenticity_token
-
+  skip_before_filter :authorize, only: :create
   before_action :set_cart_item, only: [:show, :edit, :update, :destroy]
 
   # GET /cart_items

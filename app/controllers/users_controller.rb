@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    @cart = current_cart
     @users = User.order(:name)
 
     respond_to do |format|
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
+    @cart = current_cart
     @user = User.new
   end
 

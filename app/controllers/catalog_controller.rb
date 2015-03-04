@@ -1,6 +1,7 @@
 class CatalogController < ApplicationController
   skip_before_action :verify_authenticity_token
   include ApplicationHelper
+  skip_before_filter :authorize
 
   def index
     #byebug

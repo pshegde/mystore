@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :authorize, only: [:create, :new]
 
   # GET /orders
   # GET /orders.json
@@ -29,7 +30,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    byebug
+    #byebug
     @order = Order.new(order_params)
     @order.add_cart_items_from_cart(current_cart)
     respond_to do |format|
