@@ -3,6 +3,7 @@
 <head>
 <title>My bookstore </title>
 <%= stylesheet_link_tag "mystore", "media" => "all" %>
+<%= stylesheet_link_tag "site", "media" => "all" %>
 <%= javascript_include_tag 'jquery', 'application', 'catalog' %>
 </head>
 <body id="catalog">
@@ -27,7 +28,7 @@
       <div id="notice"><%=flash[:notice]%> </div>
     <%end%>
 
-    <%= yield :layout %>
+    <%= yield  %>
   </div>
 </div>
 </body>

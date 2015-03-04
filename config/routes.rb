@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+
   #post 'cart_items/create_item'
   match '/cart_items/delete_all', :to => "cart_items#delete_all", via: [:get]
   resources :cart_items

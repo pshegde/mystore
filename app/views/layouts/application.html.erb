@@ -2,15 +2,40 @@
 <html>
 <head>
   <title>Mystore</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <%#  <%= javascript_include_tag 'jquery', 'application' <]%>
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag 'scaffold', 'mystore'%>
-</head>
-<body>
+  <%= stylesheet_link_tag 'mystore'%>
+  <%= stylesheet_link_tag 'site' %>
 
-<%= yield %>
+</head>
+<body class='<%= controller.controller_name %>'>
+
+<div id="banner">
+  <%= image_tag ("logo.png") %>
+  <%= @page_title || "Pragmatic Bookstore" %>
+</div>
+<div  id="columns">
+  <div  id="side">
+   <div id="cart">
+   <%#<% hidden_div_if(@cart.items.empty?, id: 'cart') do <]%>
+      <%= render(:partial => "carts/cart", :object => @cart) %>
+   <%# <%end<]%>
+ </div>
+   <a href="/catalog/index"> Home</a><br>
+    <a href="/catalog/view_cart"> View cart </a>
+    
+  </div>
+  <div id="main">
+    <%if flash[:notice]%>
+      <div id="notice"><%=flash[:notice]%> </div>
+    <%end%>
+
+    <%= yield  %>
+  </div>
+</div>
+
 
 </body>
 </html>
