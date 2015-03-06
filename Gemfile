@@ -31,6 +31,19 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'capistrano', '~> 3.1.0'
+
+# rails specific capistrano funcitons
+gem 'capistrano-rails', '~> 1.1.0'
+#
+# # integrate bundler with capistrano
+gem 'capistrano-bundler'
+#
+# # if you are using RBENV
+gem 'capistrano-rbenv', "~> 2.0" 
+#
+# # Use the Unicorn app server
+gem 'unicorn'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,7 +63,12 @@ group :test do
   gem 'mocha'
   gem 'rspec'
   gem 'rspec-activemodel-mocks'
+  gem 'database_cleaner', '< 1.1.0'
   gem 'minitest-rails'
+end
+
+group :production do
+  gem 'mysql2'
 end
 
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'

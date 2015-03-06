@@ -11,8 +11,14 @@ two:
   image_link: MyString
 
 ruby:
-  id : 1
   title: 'My ruby book'
   desc: 'basics'
   image_link: 'abc.png'
   price: 4.2
+
+
+prog_ruby:
+  title: "Programming Ruby 1.9"
+  desc:  "Ruby is the fastest growing and most exciting dynamic language out there. If you need to get working programs delivered fast, you should add Ruby to your toolbox."
+  price: 49.50
+  image_link: ruby.png
